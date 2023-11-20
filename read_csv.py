@@ -19,6 +19,7 @@ def measure_time(func):
 @measure_time
 def read_csv_pyarrow(file):
     try:
+        # read_options = csv.ReadOptions(use_threads=True, block_size=2**30)  # Exemple de paramètres
         arrow_table = csv.read_csv(file)
         df = arrow_table.to_pandas()
     except Exception as e:
